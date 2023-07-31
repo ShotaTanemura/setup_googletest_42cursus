@@ -5,7 +5,7 @@ set -eu
 
 if !(type "brew" > /dev/null 2>&1); then
 	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | bash
-	brew update && brew upgrade && brew install readline
+	brew update && brew upgrade
 fi
 
 if !(type "Ninja" > /dev/null 2>&1); then

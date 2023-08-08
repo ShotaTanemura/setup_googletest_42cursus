@@ -16,10 +16,16 @@ if !(type "Cmake" > /dev/null 2>&1); then
 	brew install Cmake
 fi
 
-mkdir tests
-git clone https://github.com/google/googletest.git googletest
+if [ ! -d test ]; then
+	mkdir test
+fi
+
+if [ ! -d googletest ]; then
+	git clone https://github.com/google/googletest.git googletest
+fi
+
 cd googletest 
 
-cmake -S . -B build -G Ninja -DCMAKE_INSTALL_PREFIX=../tests
+cmake -S . -B build -G Ninja -DCMAKE_INSTALL_PREFIX=../test
 cmake --build build
 cmake --install build
